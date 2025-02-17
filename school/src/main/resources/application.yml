@@ -1,0 +1,25 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8765/eureka
+
+Server:
+  port: 8070
+
+spring:
+  application:
+    name: schools
+  config:
+    import: optional:configserver:http://localhost:8888
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/schools
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+    database-platform: org.hibernate.dialect.MariaDBDialect
